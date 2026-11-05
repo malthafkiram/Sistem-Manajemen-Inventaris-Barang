@@ -53,6 +53,7 @@ class UserController {
       res.status(200).json({
         access_token,
         email: user.email,
+        username: user.username,
       });
     } catch (error) {
       next(error);
