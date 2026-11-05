@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: {
         type: DataTypes.STRING,
-        allowNull: { args: false, msg: "Nama barang wajib diisi" },
+        allowNull: false,
         validate: {
           notEmpty: { msg: "Nama barang tidak boleh kosong" },
           notNull: { msg: "Nama barang wajib diisi" },
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.TEXT,
       stock: {
         type: DataTypes.INTEGER,
-        allowNull: { args: false, msg: "Stok wajib diisi" },
+        allowNull: false,
         validate: {
           notNull: { msg: "Stok wajib diisi" },
           min: {
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       price: {
         type: DataTypes.INTEGER,
-        allowNull: { args: false, msg: "Harga wajib diisi" },
+        allowNull: false,
         validate: {
           notNull: { msg: "Harga wajib diisi" },
           min: {
