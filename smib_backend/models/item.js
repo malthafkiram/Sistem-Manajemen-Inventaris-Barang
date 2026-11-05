@@ -1,6 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const { FOREIGNKEYS } = require("sequelize/lib/query-types");
 module.exports = (sequelize, DataTypes) => {
   class Item extends Model {
     static associate(models) {
@@ -23,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: { msg: "Stok wajib diisi" },
+          isInt: { msg: "Stok harus berupa bilangan bulat" },
           min: {
             args: [0],
             msg: "Stok tidak boleh bernilai negatif",
@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: { msg: "Harga wajib diisi" },
+          isInt: { msg: "Harga harus berupa bilangan bulat" },
           min: {
             args: [0],
             msg: "Harga tidak boleh negatif",

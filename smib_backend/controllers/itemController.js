@@ -1,10 +1,25 @@
 const { Item, User } = require("../models");
+const { Op } = require("sequelize");
 
 class ItemController {
-  // 1. Get All Items (Menampilkan semua daftar barang)
+  // 1. Get All Items (Menampilkan daftar barang dengan fitur search & pagination)
   static async getAllItems(req, res, next) {
     try {
-      const items = await Item.findAll({
+      const { search, page, limit } = req.query;
+
+      const whereClause = {};
+      if (search && search.trim() !== "") {
+        whereClause.name = {
+          [Op.iLike]: `%${search.trim()}%`,
+        };
+      }
+
+      const pageNumber = page ? Math.max(1, parseInt(page, 10) || 1) : 1;
+      const limitNumber = limit ? Math.max(1, parseInt(limit, 10) || 10) : 10;
+      const offset = (pageNumber - 1) * limitNumber;
+
+      const { count, rows: items } = await Item.findAndCountAll({
+        where: whereClause,
         include: [
           {
             model: User,
@@ -12,9 +27,17 @@ class ItemController {
           },
         ],
         order: [["createdAt", "DESC"]],
+        limit: limitNumber,
+        offset: offset,
       });
 
-      res.status(200).json(items);
+      res.status(200).json({
+        totalItems: count,
+        totalPages: Math.ceil(count / limitNumber),
+        currentPage: pageNumber,
+        limit: limitNumber,
+        data: items,
+      });
     } catch (error) {
       next(error);
     }

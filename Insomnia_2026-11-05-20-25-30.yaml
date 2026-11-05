@@ -1,0 +1,221 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: smib
+meta:
+  id: wrk_a9451d938b064089a9ef2b0b1827209f
+  created: 1793850529963
+  modified: 1793850529963
+  description: ""
+collection:
+  - url: http://localhost:3000/register
+    name: Post Register
+    meta:
+      id: req_ac69598aa8424c2c9c3c284724a049c7
+      created: 1793882200574
+      modified: 1793882891730
+      isPrivate: false
+      description: ""
+      sortKey: -1793882200574
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "althaf",
+          "email": "althaf@mail.com",
+          "password": "password123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/login
+    name: Post Login
+    meta:
+      id: req_41036a839c304ec4a060ac4628dd1978
+      created: 1793882217912
+      modified: 1793883653539
+      isPrivate: false
+      description: ""
+      sortKey: -1793882217912
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "althaf@mail.com",
+          "password": "password123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: ""
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/items
+    name: Get Item
+    meta:
+      id: req_c0c44ffe79f34f9fb9381a6db692228d
+      created: 1793882240561
+      modified: 1793883486912
+      isPrivate: false
+      description: ""
+      sortKey: -1793882240561
+    method: GET
+    parameters:
+      - name: search
+        value: Asus
+        disabled: true
+      - name: page
+        value: "1"
+        disabled: true
+      - name: limit
+        value: "10"
+        disabled: true
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbHRoYWZAbWFpbC5jb20iLCJpYXQiOjE3OTM4ODI5OTZ9.XdjU_1CR8KKtv4oYyn5RL_FkIcZMoGab1n4Duw9p2vU
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/items/1
+    name: Get Item By Id
+    meta:
+      id: req_76fdf8f8c22c43e29f8b4f7e3dde96ff
+      created: 1793882272929
+      modified: 1793882287234
+      isPrivate: false
+      description: ""
+      sortKey: -1793882272929
+    method: GET
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbHRoYWZAbWFpbC5jb20iLCJpYXQiOjE3OTM4ODI5OTZ9.XdjU_1CR8KKtv4oYyn5RL_FkIcZMoGab1n4Duw9p2vU
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/items
+    name: Post Item
+    meta:
+      id: req_fe29a16c12774cd6818dafdb6c68c1b4
+      created: 1793882275642
+      modified: 1793883673439
+      isPrivate: false
+      description: ""
+      sortKey: -1793882275642
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Laptop Asus ROG",
+          "description": "Laptop gaming spesifikasi tinggi",
+          "stock": 10,
+          "price": 15000000
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbHRoYWZAbWFpbC5jb20iLCJpYXQiOjE3OTM4ODI5OTZ9.XdjU_1CR8KKtv4oYyn5RL_FkIcZMoGab1n4Duw9p2vU
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/items/1
+    name: Update Item By Id
+    meta:
+      id: req_bb7391e2a5ef4510affb1e8efc47603d
+      created: 1793882277101
+      modified: 1793884742963
+      isPrivate: false
+      description: ""
+      sortKey: -1793882277101
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Laptop Asus ROG Terbaru",
+          "description": "Spesifikasi sudah di-upgrade",
+          "stock": 10,
+          "price": 16000000
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbHRoYWZAbWFpbC5jb20iLCJpYXQiOjE3OTM4ODI5OTZ9.XdjU_1CR8KKtv4oYyn5RL_FkIcZMoGab1n4Duw9p2vU
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/items/1
+    name: Delete Item By Id
+    meta:
+      id: req_cb6a198d3fd94df8845e5cf3ca7a6210
+      created: 1793882344716
+      modified: 1793884839064
+      isPrivate: false
+      description: ""
+      sortKey: -1793882344716
+    method: DELETE
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbHRoYWZAbWFpbC5jb20iLCJpYXQiOjE3OTM4ODI5OTZ9.XdjU_1CR8KKtv4oYyn5RL_FkIcZMoGab1n4Duw9p2vU
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_86e792b8f5006d5134bd01bf9259584f99ac7db3
+    created: 1793850529966
+    modified: 1793850529966
+environments:
+  name: Base Environment
+  meta:
+    id: env_86e792b8f5006d5134bd01bf9259584f99ac7db3
+    created: 1793850529966
+    modified: 1793850529966
+    isPrivate: false

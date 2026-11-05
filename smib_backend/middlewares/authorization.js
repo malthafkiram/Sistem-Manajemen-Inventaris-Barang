@@ -3,10 +3,7 @@ const { Item } = require("../models");
 async function authorization(req, res, next) {
   try {
     const itemId = req.params.id;
-
     const userId = req.loginInfo.id;
-    console.log(req.loginInfo);
-    console.log(userId, "ini user id nya, >>>>>>>>>>");
 
     const item = await Item.findByPk(itemId);
     if (!item) {
